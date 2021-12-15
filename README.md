@@ -15,3 +15,9 @@
     </div>
 ```
 7. Run `Create.cshtml`
+
+### References
+<ul>
+<li>01100.010.037C-上傳檔案</li>
+<li>01100.010.038C-練習驗證上傳檔案</li>
+</ul>
