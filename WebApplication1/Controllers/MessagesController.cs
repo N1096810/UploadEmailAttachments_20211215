@@ -33,14 +33,14 @@ namespace WebApplication1.Controllers
             else
             {
                 string path = Server.MapPath(@"~/UploadsAreStoredHere/");/*從根目錄尋找相對路徑*/
-                string newFileName = model.ToAttachFile.FileName;
-                string fullStoredPath = System.IO.Path.Combine(path + newFileName);
+                string newFileName = model.ToAttachFile.FileName;/*尋找檔名*/
+                string fullStoredPath = System.IO.Path.Combine(path + newFileName);/*fullStoredPath == 檔案要存放的位置*/
 
                 try 
                 {
-                    model.ToAttachFile.SaveAs(fullStoredPath);
+                    model.ToAttachFile.SaveAs(fullStoredPath);/*嘗試存檔*/
                     return RedirectToAction("Index");
-                } catch (Exception ex)
+                } catch (Exception ex) /*存檔有機會失敗，例如: 權限不足*/
                 {
                     ModelState.AddModelError("ToAttachFile", "Your attachment is not uploaded. Reason:" + ex.Message);
                     return View(model);
